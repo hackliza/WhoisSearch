@@ -4,7 +4,7 @@ import os
 
 import requests
 
-from whoissearch.logger.logger import Logger
+from whoissearch.logger import Logger
 
 
 class Downloader:

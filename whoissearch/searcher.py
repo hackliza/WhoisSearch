@@ -1,14 +1,14 @@
 import os
 
 from whoissearch.classifiers.standardnetworkclassifier import StandardNetworkClassifier
-from whoissearch.downloader.downloader import Downloader
+from whoissearch.downloader import Downloader
 from whoissearch.parsers.standardparser import StandardParser
-from whoissearch.reader.reader import Reader
-from whoissearch.writer.writer import Writer
+from whoissearch.reader import Reader
+from whoissearch.writer import Writer
 
 
 class Searcher:
-    def search_networks(self):
+    def search_networks(self, white_list_path, black_list_path):
         Downloader().download_dbs()
         db_names = os.listdir("./db")
         data = []
@@ -16,9 +16,9 @@ class Searcher:
             parsed_data = self.parse_db("./db", db)
             data += parsed_data
 
-        list_reader = Reader()
-        white_list = list_reader.get_white_list()
-        black_list = list_reader.get_black_list()
+        reader = Reader()
+        white_list = reader.read_list(white_list_path)
+        black_list = reader.read_list(black_list_path)
 
         classified_data = StandardNetworkClassifier().classify(data, white_list, black_list)
 
