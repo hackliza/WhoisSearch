@@ -4,7 +4,7 @@ import os
 
 import requests
 
-from src.Logger.Logger import Logger
+from whoissearch.logger.logger import Logger
 
 
 class Downloader:

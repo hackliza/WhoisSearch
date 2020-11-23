@@ -1,7 +1,7 @@
-from src.Logger.Logger import Logger
+from whoissearch.logger.logger import Logger
 
 
-class ListReader:
+class Reader:
     def get_white_list(self):
         Logger().info("Reading white list")
         return self.read_list("./config/white_list.txt")

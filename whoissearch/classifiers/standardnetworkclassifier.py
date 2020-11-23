@@ -1,4 +1,4 @@
-from src.Logger.Logger import Logger
+from whoissearch.logger.logger import Logger
 
 
 class StandardNetworkClassifier:

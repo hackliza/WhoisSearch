@@ -1,5 +1,5 @@
-from src.DataClasses.StandardNetwork import StandardNetwork
-from src.Logger.Logger import Logger
+from whoissearch.data.standardnetwork import StandardNetwork
+from whoissearch.logger.logger import Logger
 
 
 class StandardParser:

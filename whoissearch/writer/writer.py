@@ -2,7 +2,7 @@ import csv
 import json
 import os
 
-from src.Logger.Logger import Logger
+from whoissearch.logger.logger import Logger
 
 
 class Writer:

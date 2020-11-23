@@ -1,4 +1,4 @@
-from src.Searcher import Searcher
+from whoissearch.searcher import Searcher
 
 
 def main():
