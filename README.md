@@ -2,18 +2,20 @@
 
 WhoisSearch is a program that search in RIPE, APNIC and AFRINIC a list os user defined words and returns a CSV and JSON with the networks that contain at least one word of the list.
 
-## Prerequisites
+## Installation
 
-This program uses the Requests library and can be installed with one of the following commands:
-
-```
-pip install requests
-```
-
-or
+From pypi:
 
 ```
-pip install –r requirements.txt
+pip3 install whoissearch
+```
+
+From repo:
+
+```
+git clone https://github.com/hackliza/WhoisSearch.git
+cd WhoisSearch
+pip3 install .
 ```
 
 ## Usage
@@ -35,7 +37,7 @@ bart
 
 Then, you run the program with the following command:
 ```
-python ./whoissearch.py -w whitelist.txt -b blacklist.txt
+python3 -m whoissearch.main -w whitelist.txt -b blacklist.txt
 ```
 
 Finally, you will got the following result:
