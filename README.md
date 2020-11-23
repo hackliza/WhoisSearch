@@ -31,7 +31,7 @@ and the following words to the black list:
 
 Then, you run the program with the following command:
 ```
-python ./WhoisSearch
+python ./whoissearch
 ```
 
 Finally, you will got the following result:
