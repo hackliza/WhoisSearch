@@ -37,7 +37,7 @@ bart
 
 Then, you run the program with the following command:
 ```
-python3 -m whoissearch.main -w whitelist.txt -b blacklist.txt
+whoissearch -w whitelist.txt -b blacklist.txt
 ```
 
 Finally, you will got the following result:
