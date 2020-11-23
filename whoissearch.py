@@ -1,9 +1,5 @@
-from whoissearch.searcher import Searcher
-
-
-def main():
-    Searcher().search_networks()
+import whoissearch.main
 
 
 if __name__ == '__main__':
-    main()
+    whoissearch.main.main()
