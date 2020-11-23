@@ -17,21 +17,25 @@ pip install –r requirements.txt
 ```
 
 ## Usage
-To use this program, first, you have to add words that you want to search in the file **white_list.txt** that is located at **config** folder. Optionally, you can add words that you don’t want to see in the results in the file **black_list.txt** located at **config** folder too.
+To use this program, first, you have to create a file with the words that you want to be searched (whitelist). 
+Optionally, you can create a file with the words that you want to exclude in the results (blacklist).
 
-For example, you can add the following words to the white list:
-+ foo
-+ bar
-+ foobar
-+ example
+For example, you can add the following words to the whitelist:
+```
+foo
+bar
+example
+```
 
-and the following words to the black list:
-+ food
-+ bart
+and the following words to the blacklist:
+```
+food
+bart
+```
 
 Then, you run the program with the following command:
 ```
-python ./whoissearch
+python ./whoissearch.py -w whitelist.txt -b blacklist.txt
 ```
 
 Finally, you will got the following result:
