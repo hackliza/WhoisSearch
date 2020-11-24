@@ -1,4 +1,5 @@
 import logging
+import sys
 
 
 class SingletonLogger(type):
@@ -13,11 +14,11 @@ class SingletonLogger(type):
 
 class Logger(metaclass=SingletonLogger):
     def __init__(self):
-        handler = logging.StreamHandler()
+        handler = logging.StreamHandler(sys.stdout)
         format = logging.Formatter("[%(asctime)s] %(levelname)-8s %(message)s")
         handler.setFormatter(format)
         self.logger = logging.getLogger()
-        self.logger.setLevel(logging.DEBUG)
+        self.logger.setLevel(logging.INFO)
         self.logger.addHandler(handler)
 
     def debug(self, msg):
