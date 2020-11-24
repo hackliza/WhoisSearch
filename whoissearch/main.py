@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from whoissearch.searcher import Searcher
 
@@ -8,11 +9,47 @@ def main():
         description="Get network blocks from whois from a list of words",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("white_list", metavar='Whitelist', type=str, help="Indicates the whitelist path")
-    parser.add_argument("-b", "--black", help="Indicates the blacklist path", required=False, dest="black_list")
+    parser.add_argument(
+        "white_list",
+        metavar='Whitelist',
+        type=str,
+        help="Indicates the whitelist path"
+    )
+    parser.add_argument(
+        "-b",
+        "--black",
+        help="Indicates the blacklist path",
+        required=False,
+        dest="black_list"
+    )
+    parser.add_argument(
+        "-n",
+        "--not-download",
+        help="Indicates that you do not want to download the databases",
+        required=False,
+        action="store_false",
+        default=True,
+        dest="download"
+    )
+    parser.add_argument(
+        "-d",
+        "--db-dir",
+        help="Indicates the read/download directory of databases",
+        required=False,
+        default=os.path.realpath("") + "\\db",
+        dest="db_dir"
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        help="Indicates the output directory",
+        required=False,
+        default=os.path.realpath("") + "\\results",
+        dest="output_directory"
+    )
     args = parser.parse_args()
 
-    Searcher().search_networks(args.white_list, args.black_list)
+    Searcher().search_networks(args.white_list, args.black_list, args.download, args.db_dir, args.output_directory)
 
 
 if __name__ == '__main__':

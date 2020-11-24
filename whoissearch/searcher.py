@@ -9,18 +9,19 @@ from whoissearch.writer import Writer
 
 
 class Searcher:
-    def search_networks(self, white_list_path, black_list_path):
-        Downloader().download_dbs()
+    def search_networks(self, white_list_path, black_list_path, download, db_directory, output_directory):
+        if download:
+            Downloader().download_dbs(db_directory)
 
-        db_names = os.listdir("./db")
+        db_names = os.listdir(db_directory)
 
         decompressor = Decompressor()
 
         data = []
         for db in db_names:
             if db.endswith(".db.gz"):
-                decompressed_file = decompressor.decompress("./db", db)
-                parsed_data = self.parse_db("./db", decompressed_file)
+                decompressed_file = decompressor.decompress(db_directory, db)
+                parsed_data = self.parse_db(db_directory, decompressed_file)
                 data += parsed_data
 
         reader = Reader()
@@ -30,8 +31,8 @@ class Searcher:
         classified_data = StandardNetworkClassifier().classify(data, white_list, black_list)
 
         writer = Writer()
-        writer.write_csv(classified_data)
-        writer.write_json(classified_data)
+        writer.write_csv(classified_data, output_directory)
+        writer.write_json(classified_data, output_directory)
 
     def parse_db(self, path, file_name):
         file = open(os.path.join(path, file_name), "r", encoding="cp850")

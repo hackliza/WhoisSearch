@@ -13,13 +13,11 @@ class Downloader:
         "https://ftp.ripe.net/ripe/dbase/split/ripe.db.inetnum.gz": "RIPE"
     }
 
-    directory = "./db"
-
-    def download_dbs(self):
-        os.makedirs(self.directory, exist_ok=True)
+    def download_dbs(self, db_directory):
+        os.makedirs(db_directory, exist_ok=True)
 
         for url, db_name in self.configuration.items():
-            self.download_stardard_db(url, self.directory, db_name)
+            self.download_stardard_db(url, db_directory, db_name)
 
     def download_stardard_db(self, url, path, db_name):
         Logger().info("Downloading {db_name}".format(db_name=db_name))
