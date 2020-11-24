@@ -36,4 +36,5 @@ class Searcher:
     def parse_db(self, path, file_name):
         file = open(os.path.join(path, file_name), "r", encoding="cp850")
         parsed_data = StandardParser().parse(file)
+        file.close()
         return parsed_data
