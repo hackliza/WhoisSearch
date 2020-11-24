@@ -1,5 +1,4 @@
 import logging
-from logging.config import fileConfig
 
 
 class SingletonLogger(type):
@@ -14,8 +13,12 @@ class SingletonLogger(type):
 
 class Logger(metaclass=SingletonLogger):
     def __init__(self):
-        fileConfig('./config/logger.ini')
+        handler = logging.StreamHandler()
+        format = logging.Formatter("[%(asctime)s] %(levelname)-8s %(message)s")
+        handler.setFormatter(format)
         self.logger = logging.getLogger()
+        self.logger.setLevel(logging.DEBUG)
+        self.logger.addHandler(handler)
 
     def debug(self, msg):
         self.logger.debug(msg)
