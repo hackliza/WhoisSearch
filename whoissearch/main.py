@@ -8,7 +8,7 @@ def main():
         description="Get network blocks from whois from a list of words",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("-w", "--white", help="Indicates the whitelist path", required=True, dest="white_list")
+    parser.add_argument("white_list", metavar='Whitelist', type=str, help="Indicates the whitelist path")
     parser.add_argument("-b", "--black", help="Indicates the blacklist path", required=False, dest="black_list")
     args = parser.parse_args()
 
