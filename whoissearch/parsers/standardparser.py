@@ -1,11 +1,12 @@
+from tqdm import tqdm
+
 from whoissearch.data.standardnetwork import StandardNetwork
 from whoissearch.logger import Logger
-from tqdm import tqdm
 
 
 class StandardParser:
-    def parse(self, file):
-        Logger().info("Parsing data")
+    def parse(self, file, name):
+        Logger().info("Parsing data from {filename}".format(filename=name))
         parsed_data = []
         block_count = self.get_block_count(file)
         file.seek(0)
