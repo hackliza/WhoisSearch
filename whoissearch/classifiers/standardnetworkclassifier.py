@@ -1,5 +1,7 @@
 from whoissearch.logger import Logger
 
+from tqdm import tqdm
+
 
 class StandardNetworkClassifier:
     def classify(self, data, white_list, black_list):
@@ -9,8 +11,9 @@ class StandardNetworkClassifier:
         return matched_nets
 
     def get_white_list_match_blocks(self, data, white_list):
+        Logger().info("\tObtaining matched network block")
         white_matched_nets = []
-        for network in data:
+        for network in tqdm(data):
             for word in white_list:
                 if self.is_in_list(word, network):
                     network.matched_word = word
@@ -25,9 +28,9 @@ class StandardNetworkClassifier:
         if not black_list:
             return white_matched_nets
 
+        Logger().info("\tDiscarding black listed network block")
         matched_nets = []
-
-        for network in white_matched_nets:
+        for network in tqdm(white_matched_nets):
             if not self.is_black_list_word_in_block(network, black_list):
                 matched_nets.append(network)
         return matched_nets
