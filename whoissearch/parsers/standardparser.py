@@ -1,12 +1,15 @@
 from whoissearch.data.standardnetwork import StandardNetwork
 from whoissearch.logger import Logger
+from tqdm import tqdm
 
 
 class StandardParser:
     def parse(self, file):
         Logger().info("Parsing data")
         parsed_data = []
-        for block in self.get_block(file):
+        block_count = self.get_block_count(file)
+        file.seek(0)
+        for block in tqdm(self.get_block(file), total=block_count):
             if self.is_network_block(block):
                 inetnum = self.get_data("inetnum:", block)
                 netname = self.get_data("netname:", block)
@@ -49,3 +52,10 @@ class StandardParser:
             if line.startswith(attribute):
                 data += line[16:] + "\n"
         return data[:-1]
+
+    def get_block_count(self, file):
+        block_count = 0
+        for line in file:
+            if self.is_separator(line):
+                block_count += 1
+        return block_count
