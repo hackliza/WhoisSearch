@@ -26,5 +26,8 @@ class Logger(metaclass=SingletonLogger):
     def warning(self, msg):
         self.logger.warning(msg)
 
+    def error(self, msg):
+        self.logger.error(msg)
+
     def critical(self, msg):
         self.logger.critical(msg)
