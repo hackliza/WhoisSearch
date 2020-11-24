@@ -37,7 +37,7 @@ bart
 
 Then, you run the program with the following command:
 ```
-whoissearch -w whitelist.txt -b blacklist.txt
+whoissearch whitelist.txt -b blacklist.txt
 ```
 
 Finally, you will got the following result:
