@@ -14,11 +14,6 @@ class Reader:
         yield from self.read_text_lines(self.read_targets(targets))
 
     def read_targets(self, targets: Optional[Any]) -> Iterator[str]:
-        """Function to process the program ouput that allows to read an array
-        of strings or lines of a file in a standard way. In case nothing is
-        provided, input will be taken from stdin.
-        """
-
         for target in targets:
             try:
                 with open(target) as fi:
@@ -27,9 +22,6 @@ class Reader:
                 yield target
 
     def read_text_lines(self, fd: Iterator[str]) -> Iterator[str]:
-        """To read lines from a file and skip empty lines or those commented
-        (starting by #)
-        """
         for line in fd:
             line = line.strip()
             if line == "":
