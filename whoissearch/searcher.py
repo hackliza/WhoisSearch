@@ -9,7 +9,7 @@ from whoissearch.writer import Writer
 
 
 class Searcher:
-    def search_networks(self, white_list_path, black_list_path, download, db_directory, output_directory):
+    def search_networks(self, white_list, black_list, download, db_directory, output_directory):
         if download:
             Downloader().download_dbs(db_directory)
 
@@ -25,8 +25,8 @@ class Searcher:
                 data += parsed_data
 
         reader = Reader()
-        white_list = reader.read_list(white_list_path)
-        black_list = reader.read_list(black_list_path)
+        white_list = reader.read_white_list(white_list)
+        black_list = reader.read_black_list(black_list)
 
         classified_data = StandardNetworkClassifier().classify(data, white_list, black_list)
 

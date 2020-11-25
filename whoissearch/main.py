@@ -13,14 +13,16 @@ def main():
         "white_list",
         metavar='Whitelist',
         type=str,
-        help="Indicates the whitelist path"
+        help="Indicates the whitelist string or file with lines to process.",
+        nargs="+"
     )
     parser.add_argument(
         "-b",
         "--black",
-        help="Indicates the blacklist path",
+        help="Indicates the blacklist string or file with lines to process.",
         required=False,
-        dest="black_list"
+        dest="black_list",
+        nargs="+"
     )
     parser.add_argument(
         "-n",
