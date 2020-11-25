@@ -36,7 +36,7 @@ def main():
         "--db-dir",
         help="Indicates the read/download directory of databases",
         required=False,
-        default=os.path.realpath("") + "\\db",
+        default=os.path.join(os.path.dirname(os.path.realpath(__file__)), "db"),
         dest="db_dir"
     )
     parser.add_argument(
@@ -44,7 +44,7 @@ def main():
         "--output",
         help="Indicates the output directory",
         required=False,
-        default=os.path.realpath("") + "\\results",
+        default=os.path.join(os.path.dirname(os.path.realpath(__file__)), "results"),
         dest="output_directory"
     )
     args = parser.parse_args()
