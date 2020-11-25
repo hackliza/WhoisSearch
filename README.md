@@ -19,30 +19,95 @@ pip3 install .
 ```
 
 ## Usage
-To use this program, first, you have to create a file with the words that you want to be searched (whitelist). 
-Optionally, you can create a file with the words that you want to exclude in the results (blacklist).
+To use this program, first, you need a list of words that you want to be searched (whitelist). 
+Optionally, you can have a list of words that you want to exclude in the results (blacklist).
 
-For example, you can add the following words to the whitelist:
+For example, you can have the following words in the whitelist:
 ```
 foo
 bar
 example
 ```
 
-and the following words to the blacklist:
+and the following words in the blacklist:
 ```
 food
 bart
 ```
 
-Then, you run the program with the following command:
+Then, you can run the program putting this words on a file or by command line as we show in the following examples:
 ```
 whoissearch whitelist.txt -b blacklist.txt
 ```
 
-Finally, you will got the following result:
+```
+whoissearch foo bar example -b food bart
+```
+
+```
+whoissearch whitelist.txt -b food bart
+```
+
+When the program ends, you will get the following results:
 
 ![output](images/Output_example.PNG)
+
+```json
+{
+    "results": [
+        {
+            "inetnum": "212.0.145.176 - 212.0.145.183",
+            "netname": "HAFEZ-ALBARBARI",
+            "descr": "",
+            "country": "SD",
+            "admin_c": "MHAE1-AFRINIC",
+            "tech_c": "MHAE1-AFRINIC",
+            "remarks": "data has been transferred from RIPE Whois Database 20050221",
+            "notify": "",
+            "mnt_by": "SUDATEL-MNT",
+            "changed": "***@sudatel.net 20040619\n***@afrinic.net 20050205",
+            "status": "ASSIGNED PA",
+            "mnt_lower": "MNT-HIBA",
+            "created": "",
+            "last_modified": "",
+            "source": "AFRINIC",
+            "matched_word": "bar"
+        },
+        {
+            "inetnum": "212.52.131.0 - 212.52.131.255",
+            "netname": "UNIV-OUAGA",
+            "descr": "University of Ouagadougou\nBURKINA FASO/ousmane.barra@univ-ouaga.bf",
+            "country": "BF",
+            "admin_c": "FMS7-AFRINIC\nOS814-AFRINIC",
+            "tech_c": "FMS7-AFRINIC\nOS814-AFRINIC",
+            "remarks": "data has been transferred from RIPE Whois Database 20050221",
+            "notify": "",
+            "mnt_by": "FasoNet-SECURITY-MNT",
+            "changed": "***@univ-ouaga.bf 19980325\n***@ripe.net 20040429\n***@afrinic.net 20050205\n***@onatel.bf 20100716\n***@onatel.bf 20161013\n***@onatel.bf 20180612",
+            "status": "ASSIGNED PA",
+            "mnt_lower": "",
+            "created": "",
+            "last_modified": "",
+            "source": "AFRINIC",
+            "matched_word": "bar"
+        }
+    ]
+}
+```
+
+Results and databases are stored by default in folders **whoissearch_results** and **.whoissearch_bds** respectively, located at user directory.
+You can change this directories with the flags **-o** for the results path and with **-d** for the databases path.
+An example of this can be:
+
+```
+whoissearch whitelist.txt -b food bart -o ./results -d ./db
+```
+
+Finally, if you already have downloaded the databases, you can avoid this step by using the flag **-n**.
+
+```
+whoissearch whitelist.txt -b food bart -n
+```
 
 ## Behavior
 1. The program downloads the databases of RIPE, APNIC and AFRINIC from the official FTP servers.
