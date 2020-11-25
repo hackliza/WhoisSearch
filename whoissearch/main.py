@@ -2,7 +2,7 @@ import argparse
 import os
 
 from whoissearch.searcher import Searcher
-
+from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(
@@ -38,7 +38,7 @@ def main():
         "--db-dir",
         help="Indicates the read/download directory of databases",
         required=False,
-        default=os.path.join(os.path.dirname(os.path.realpath(__file__)), "db"),
+        default=os.path.join(str(Path.home()), ".whoissearch_bds"),
         dest="db_dir"
     )
     parser.add_argument(
@@ -46,7 +46,7 @@ def main():
         "--output",
         help="Indicates the output directory",
         required=False,
-        default=os.path.join(os.path.dirname(os.path.realpath(__file__)), "results"),
+        default=os.path.join(str(Path.home()), "results"),
         dest="output_directory"
     )
     args = parser.parse_args()
