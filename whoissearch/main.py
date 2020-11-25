@@ -1,8 +1,9 @@
 import argparse
 import os
+from pathlib import Path
 
 from whoissearch.searcher import Searcher
-from pathlib import Path
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -46,7 +47,7 @@ def main():
         "--output",
         help="Indicates the output directory",
         required=False,
-        default=os.path.join(str(Path.home()), "results"),
+        default=os.path.join(str(Path.home()), "whoissearch_results"),
         dest="output_directory"
     )
     args = parser.parse_args()
