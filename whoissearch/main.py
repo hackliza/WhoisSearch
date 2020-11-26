@@ -47,7 +47,7 @@ def main():
         "--output",
         help="Indicates the output directory",
         required=False,
-        default=os.path.join(str(Path.home()), "whoissearch_results"),
+        default="./whoissearch_results",
         dest="output_directory"
     )
     args = parser.parse_args()

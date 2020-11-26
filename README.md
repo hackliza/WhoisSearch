@@ -95,10 +95,11 @@ When the program ends, you will get the following results:
 }
 ```
 
-Results and databases are stored by default in folders **whoissearch_results** and **.whoissearch_bds** respectively, located at user directory.
-You can change this directories with the flags **-o** for the results path and with **-d** for the databases path.
-An example of this can be:
+Databases are stored by default in folder **.whoissearch_bds**, located at user directory. You can change this path with flag **-d**.
 
+Results are stored by default in folder **whoissearch_results**, located at actual directory. You can change this path with flag **-o**.
+
+For example, if you want to change directories of results and database, you can use something like:
 ```
 whoissearch whitelist.txt -b food bart -o ./results -d ./db
 ```
