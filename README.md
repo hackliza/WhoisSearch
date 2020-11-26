@@ -103,6 +103,17 @@ An example of this can be:
 whoissearch whitelist.txt -b food bart -o ./results -d ./db
 ```
 
+The structure in folder where databases are stored is:
+```
+.
++-- AFRINIC.db.gz
++-- AFRINIC.db.txt
++-- APNIC.db.gz
++-- APNIC.db.txt
++-- RIPE.db.gz
++-- RIPE.db.txt
+```
+
 Finally, if you already have downloaded the databases, you can avoid this step by using the flag **-n**.
 
 ```
