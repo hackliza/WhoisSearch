@@ -95,7 +95,7 @@ When the program ends, you will get the following results:
 }
 ```
 
-Databases are stored by default in folder **.whoissearch_bds**, located at user directory. You can change this path with flag **-d**.
+Databases are stored by default in folder **.whoissearch_dbs**, located at user directory. You can change this path with flag **-d**.
 
 Results are stored by default in folder **whoissearch_results**, located at actual directory. You can change this path with flag **-o**.
 

@@ -39,7 +39,7 @@ def main():
         "--db-dir",
         help="Indicates the read/download directory of databases",
         required=False,
-        default=os.path.join(str(Path.home()), ".whoissearch_bds"),
+        default=os.path.join(str(Path.home()), ".whoissearch_dbs"),
         dest="db_dir"
     )
     parser.add_argument(
