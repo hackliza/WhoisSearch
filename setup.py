@@ -8,7 +8,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name="whoissearch",
-    version="0.1.0",
+    version="0.1.1",
     author="Guzman Cernadas Perez",
     author_email="guzman.cernadas@protonmail.com",
     description="Get network blocks from whois from a list of words",
